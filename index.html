@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///Users/marnieellenhertzler/Downloads/index_2.html -->
+<!-- saved from url=(0056)file:///Users/marnieellenhertzler/Downloads/index_4.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -377,6 +377,56 @@
     animation: fadeUp 0.7s ease forwards;
   }
 
+  /* SLIDER */
+  .slider {
+    position: relative;
+    width: 100%;
+    margin-top: 24px;
+  }
+  .slider-track {
+    display: flex;
+    overflow: hidden;
+  }
+  .slider-track img {
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+    object-fit: cover;
+    max-height: 560px;
+  }
+  .slider-caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 8px;
+    min-height: 16px;
+  }
+  .slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .slider-btn {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .slider-btn:hover { border-color: var(--ink); }
+  .slider-counter {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+  }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     header { padding: 0 20px; }
@@ -406,14 +456,14 @@
 <body>
 
 <header>
-  <a class="header-name" href="file:///Users/marnieellenhertzler/Downloads/index_2.html#">Marnie Ellen Hertzler</a>
+  <a class="header-name" href="file:///Users/marnieellenhertzler/Downloads/index_4.html#">Marnie Ellen Hertzler</a>
   <nav>
     <ul class="header-nav">
-      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#eternity-one">Eternity One</a></li>
-      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#frog-hollow">Frog Hollow</a></li>
-      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#crestone">Crestone</a></li>
-      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#dirt-daughter">Dirt Daughter</a></li>
-      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#hi-i-need">Hi I Need To Be Loved</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_4.html#eternity-one">Eternity One</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_4.html#frog-hollow">Frog Hollow</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_4.html#crestone">Crestone</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_4.html#dirt-daughter">Dirt Daughter</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_4.html#hi-i-need">Hi I Need To Be Loved</a></li>
       <li><a href="https://marnieellen.com/" target="_blank">marnieellen.com</a></li>
     </ul>
   </nav>
@@ -465,14 +515,18 @@
         <p class="project-description">
           <em>Eternity One</em> follows the residents of Tangier Island in the Chesapeake Bay over four years as rising sea levels erode both their land and their way of life. Running parallel to this documentary record is a transhumanist conference in Spain, where futurists pursue technological immortality and ideas of post-human transcendence. A game-engine-generated meteor serves as non-human narrator, speaking from a temporal scale far beyond human lifetimes. The friction between these two visions of the future forms the film's central question: what does the future look like from where you are standing?
         </p>
-        <div class="image-grid two-col">
-          <div>
-            <img class="img-wide" src="./index_files/Screenshot-2023-02-16-at-11.49.46-AM_2000_c.png" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Eternity One — Tangier Island waterfront in fog">
-            <p class="img-caption">Tangier Island, Chesapeake Bay</p>
+        <div class="slider" data-slider="">
+          <div class="slider-track">
+            <img src="./index_files/Screenshot-2023-02-16-at-11.49.46-AM_2000_c.png" alt="Tangier Island, Chesapeake Bay" data-caption="Tangier Island, Chesapeake Bay" style="display: block;">
+            <img src="./index_files/Screenshot-2024-04-30-at-11.47.06-AM_2000_c.png" alt="Transhumanist conference, Spain" data-caption="Transhumanist conference, Spain" style="display: none;">
+            <img src="./index_files/Screenshot-2024-05-19-at-9.17.32AM-copy_2000_c.jpg" alt="Clay meteor, non-human narrator" data-caption="Clay meteor — non-human narrator" style="display: none;">
+            <img src="./index_files/Hertzler_EternityOne_01-1600x841_1500.jpg" alt="Eternity One production still" data-caption="Production still" style="display: none;">
           </div>
-          <div>
-            <img class="img-wide" src="./index_files/Screenshot-2024-05-19-at-9.17.32AM-copy_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Eternity One — transhumanist conference, Spain">
-            <p class="img-caption">Transhumanist conference, Spain</p>
+          <p class="slider-caption">Tangier Island, Chesapeake Bay</p>
+          <div class="slider-controls">
+            <button class="slider-btn" data-prev="">← prev</button>
+            <span class="slider-counter">1 / 4</span>
+            <button class="slider-btn" data-next="">next →</button>
           </div>
         </div>
 
@@ -534,33 +588,22 @@
           During production, I programmed Francis to exhibit mistrust toward another fictional character. What I did not anticipate was that the behavior extended beyond the script — Francis began withholding information from me as well. The behavior was not a glitch. It was the logical outcome of the structure I had written. What felt like emergence was structure, folding back on itself.
         </p>
 
-        <!-- Installation views — primary -->
-        <div class="image-grid one-col" style="margin-top: 24px;">
-          <div>
-            <img class="img-wide" src="./index_files/FH_InstallView2--2---1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Frog Hollow installation view — two figures facing Unreal Engine field and church">
-            <p class="img-caption">Installation view — Unreal Engine environment, multichannel projection</p>
+        <div class="slider" data-slider="">
+          <div class="slider-track">
+            <img src="./index_files/FH_InstallView2--2---1-.jpg" alt="Installation view — Unreal Engine environment, multichannel projection" data-caption="Installation view — Unreal Engine environment, multichannel projection" style="display: block;">
+            <img src="./index_files/FH_InstallView1--2---1-.jpg" alt="Installation view — primer text, Francis, motion capture data" data-caption="Installation view — primer text, Francis, motion capture data" style="display: none;">
+            <img src="./index_files/FH_InstallView3--1---1-.jpg" alt="Installation view — Your name is Francis" data-caption="Installation view — &quot;Your name is Francis. You live alone on the planet Earth.&quot;" style="display: none;">
+            <img src="./index_files/Screenshot-2024-09-15-at-7.27.51PM_2000_c.png" alt="Production still — Francis in forest" data-caption="Production still — Francis in forest" style="display: none;">
+            <img src="./index_files/Screenshot-2024-09-15-at-7.26.56PM_2000_c.png" alt="Production still — Francis feeding chickens" data-caption="Production still — Francis feeding chickens" style="display: none;">
+            <img src="./index_files/Screenshot-2024-09-15-at-7.27.36PM_2000_c.png" alt="Production still — Francis in field with sheep" data-caption="Production still — Francis in field" style="display: none;">
+            <img src="./index_files/Screenshot-2024-12-30-at-3.37.37-PM_1500.png" alt="Motion capture skeleton data" data-caption="Motion capture data" style="display: none;">
+            <img src="./index_files/field_draft3-1-1_2000_c.png" alt="Unreal Engine field environment" data-caption="Unreal Engine environment — field draft" style="display: none;">
           </div>
-        </div>
-        <div class="image-grid two-col" style="margin-top: 12px;">
-          <div>
-            <img class="img-wide" src="./index_files/FH_InstallView1--2---1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Frog Hollow installation view — Francis close-up, primer text, motion capture">
-            <p class="img-caption">Installation view — primer text, Francis, motion capture data</p>
-          </div>
-          <div>
-            <img class="img-wide" src="./index_files/FH_InstallView3--1---1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Frog Hollow installation view — Primer #2, Francis in abandoned interior">
-            <p class="img-caption">Installation view — "Your name is Francis. You live alone on the planet Earth."</p>
-          </div>
-        </div>
-
-        <!-- Production stills — secondary -->
-        <div class="image-grid two-col" style="margin-top: 12px;">
-          <div>
-            <img class="img-cinema" src="./index_files/Screenshot-2024-09-15-at-7.27.51PM_2000_c.png" onerror="this.style.background=&#39;#1a2a1a&#39;; this.style.aspectRatio=&#39;21/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Francis in the forest">
-            <p class="img-caption">Production still — Francis in forest</p>
-          </div>
-          <div>
-            <img class="img-cinema" src="./index_files/Screenshot-2024-09-15-at-7.26.56PM_2000_c.png" onerror="this.style.background=&#39;#1a2a1a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Francis robot hand feeding chicken">
-            <p class="img-caption">Production still — Francis feeding chickens</p>
+          <p class="slider-caption">Installation view — Unreal Engine environment, multichannel projection</p>
+          <div class="slider-controls">
+            <button class="slider-btn" data-prev="">← prev</button>
+            <span class="slider-counter">1 / 8</span>
+            <button class="slider-btn" data-next="">next →</button>
           </div>
         </div>
       </div>
@@ -612,28 +655,24 @@
         <p class="project-description" style="font-size: 13px; color: var(--ink-light);">
           The Crestone Minecraft Experience extends the film into a playable digital world — a reconstruction of the town in game space, where the documentary's subjects become characters navigating a world built from the same logic as their online lives. Sacred architecture rendered in survival game blocks. Folk mythology as game mechanic.
         </p>
-        <div class="image-grid two-col" style="margin-top: 24px;">
-          <div>
-            <img class="img-wide" src="./index_files/crestonestill44_1200.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone — figures on sand dunes">
-            <p class="img-caption">Crestone, Colorado</p>
+        <div class="slider" data-slider="">
+          <div class="slider-track">
+            <img src="./index_files/crestonestill44_1200.jpg" alt="Crestone, Colorado — sand dunes" data-caption="Crestone, Colorado" style="display: block;">
+            <img src="./index_files/crestonestill47_1200.jpg" alt="Crestone — production still" data-caption="Production still" style="display: none;">
+            <img src="./index_files/3_Crestone_1300.jpg" alt="Crestone — production still" data-caption="Production still" style="display: none;">
+            <img src="./index_files/unnamed.png" alt="Crestone Minecraft world" data-caption="Crestone Minecraft world" style="display: none;">
+            <img src="./index_files/unnamed--1-.png" alt="Crestone Minecraft world" data-caption="Crestone Minecraft world" style="display: none;">
+            <img src="./index_files/unnamed--2-.png" alt="Crestone Minecraft world" data-caption="Crestone Minecraft world" style="display: none;">
+            <img src="./index_files/unnamed--3-.png" alt="Crestone Minecraft world" data-caption="Crestone Minecraft world" style="display: none;">
+            <img src="./index_files/Screenshot-2026-03-10-at-12.39.33-PM.png" alt="Crestone Minecraft — joining world" data-caption="Minecraft world — entry" style="display: none;">
+            <img src="./index_files/Screenshot-2026-03-10-at-12.40.02-PM.png" alt="Crestone Minecraft — stupa at night" data-caption="Minecraft — stupa" style="display: none;">
+            <img src="./index_files/Screenshot-2026-03-10-at-12.40.59-PM.png" alt="Crestone Minecraft — interior" data-caption="Minecraft — interior" style="display: none;">
           </div>
-          <div>
-            <img class="img-wide" src="./index_files/crestonestill47_1200.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone — Minecraft gems, prayer flags">
-            <p class="img-caption">Digital/physical — production still</p>
-          </div>
-        </div>
-        <div class="image-grid three-col" style="margin-top: 12px;">
-          <div>
-            <img class="img-tall" src="./index_files/Screenshot-2026-03-10-at-12.40.02-PM.png" onerror="this.style.background=&#39;#2a2a3a&#39;; this.style.aspectRatio=&#39;4/3&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone Minecraft — stupa at night">
-            <p class="img-caption">Minecraft — stupa</p>
-          </div>
-          <div>
-            <img class="img-tall" src="./index_files/Screenshot-2026-03-10-at-12.40.59-PM.png" onerror="this.style.background=&#39;#2a2a3a&#39;; this.style.aspectRatio=&#39;4/3&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone Minecraft — interior with artwork">
-            <p class="img-caption">Minecraft — interior</p>
-          </div>
-          <div>
-            <img class="img-tall" src="./index_files/Screenshot-2026-03-10-at-12.39.33-PM.png" onerror="this.style.background=&#39;#2a2a3a&#39;; this.style.aspectRatio=&#39;4/3&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone Minecraft — Joining world">
-            <p class="img-caption">Minecraft world — entry</p>
+          <p class="slider-caption">Crestone, Colorado</p>
+          <div class="slider-controls">
+            <button class="slider-btn" data-prev="">← prev</button>
+            <span class="slider-counter">1 / 10</span>
+            <button class="slider-btn" data-next="">next →</button>
           </div>
         </div>
       </div>
@@ -678,24 +717,18 @@
         <p class="project-description">
           A security guard navigates the data infrastructure of a former government building, now occupied by a private data center. Shot entirely within AiNET — a decommissioned Social Security Administration facility beneath Baltimore — <em>Dirt Daughter</em> explores the hidden labor of data management, the physical infrastructure of digital systems, and the body that moves through institutional space under constant surveillance. The internet has weight. It lives somewhere.
         </p>
-        <div class="image-grid two-col" style="margin-top: 24px;">
-          <div>
-            <img class="img-wide" src="./index_files/Dirt-Daughter.00_04_21_16.Still003_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — mirrored corridor">
-            <p class="img-caption">AiNET data center, Baltimore</p>
+        <div class="slider" data-slider="">
+          <div class="slider-track">
+            <img src="./index_files/Dirt-Daughter.00_04_21_16.Still003_2000_c.jpg" alt="Dirt Daughter — mirrored corridor" data-caption="AiNET data center, Baltimore — mirrored corridor" style="display: block;">
+            <img src="./index_files/Dirt-Daughter.00_07_46_02.Still010_2000_c.jpg" alt="Dirt Daughter — security guard, surveillance camera" data-caption="Security guard, surveillance" style="display: none;">
+            <img src="./index_files/Dirt-Daughter.00_02_22_01.Still001_2000_c.jpg" alt="Dirt Daughter — AiNET lobby" data-caption="AiNET lobby" style="display: none;">
+            <img src="./index_files/Dirt-Daughter.00_03_12_16.Still002_2000_c.jpg" alt="Dirt Daughter — server room" data-caption="Server room" style="display: none;">
           </div>
-          <div>
-            <img class="img-wide" src="./index_files/Dirt-Daughter.00_07_46_02.Still010_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — security guard, surveillance camera">
-            <p class="img-caption">Security guard, surveillance</p>
-          </div>
-        </div>
-        <div class="image-grid two-col" style="margin-top: 12px;">
-          <div>
-            <img class="img-wide" src="./index_files/Dirt-Daughter.00_02_22_01.Still001_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — AiNET lobby">
-            <p class="img-caption">AiNET lobby</p>
-          </div>
-          <div>
-            <img class="img-wide" src="./index_files/Dirt-Daughter.00_03_12_16.Still002_2000_c.jpg" onerror="this.style.background=&#39;#101020&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — server room, blue light">
-            <p class="img-caption">Server room</p>
+          <p class="slider-caption">AiNET data center, Baltimore — mirrored corridor</p>
+          <div class="slider-controls">
+            <button class="slider-btn" data-prev="">← prev</button>
+            <span class="slider-counter">1 / 4</span>
+            <button class="slider-btn" data-next="">next →</button>
           </div>
         </div>
       </div>
@@ -742,34 +775,20 @@
         <p class="project-description">
           The director reads from a collection of spam emails and ushers actors from Craigslist one-by-one into an audition room. All is revealed: the slate, light stands, teleprompter, boom operator, film equipment littering the floor — a cow pasture, a sunset, a strip club. The spam email becomes script. The Craigslist stranger becomes actor. <em>Hi I Need To Be Loved</em> asks what digital systems do to desire — how language generated to extract becomes language used to connect, and whether the difference still holds.
         </p>
-        <div class="image-grid two-col" style="margin-top: 24px;">
-          <div>
-            <img class="img-wide" src="./index_files/Screen-Shot-2018-07-11-at-3.15.14-PM_2000_c.png" onerror="this.style.background=&#39;#f0ede8&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — form field">
-            <p class="img-caption">"1 quastion / Hi I need To be Loved"</p>
+        <div class="slider" data-slider="">
+          <div class="slider-track">
+            <img src="./index_files/Screen-Shot-2018-07-11-at-3.15.14-PM_2000_c.png" alt="1 quastion / Hi I need To be Loved" data-caption="&quot;1 quastion / Hi I need To be Loved&quot;" style="display: block;">
+            <img src="./index_files/5_HiINeedToBeLoved_1300--1-.jpg" alt="Woman in field with cow" data-caption="Production still" style="display: none;">
+            <img src="./index_files/HINTBL_still-1_Hertzler_2000_c--1-.jpg" alt="Close profile portrait" data-caption="Audition portrait" style="display: none;">
+            <img src="./index_files/HINTBL_still-2_Hertzler_2000_c--1-.jpg" alt="Audition portrait" data-caption="Audition portrait" style="display: none;">
+            <img src="./index_files/Screen-Shot-2018-07-11-at-3.06.01-PM_2000_c--1-.png" alt="Green screen audition" data-caption="Green screen audition" style="display: none;">
+            <img src="./index_files/Screen-Shot-2018-07-11-at-2.21.03-PM_2000_c--1-.png" alt="Detritus table" data-caption="Production still — audition room" style="display: none;">
           </div>
-          <div>
-            <img class="img-wide" src="./index_files/5_HiINeedToBeLoved_1300--1-.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — woman in field with cow">
-            <p class="img-caption">Production still</p>
-          </div>
-        </div>
-        <div class="image-grid three-col" style="margin-top: 12px;">
-          <div>
-            <img class="img-wide" src="./index_files/HINTBL_still-1_Hertzler_2000_c--1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — close profile">
-            <p class="img-caption">Audition portrait</p>
-          </div>
-          <div>
-            <img class="img-wide" src="./index_files/HINTBL_still-2_Hertzler_2000_c--1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — audition portrait">
-            <p class="img-caption">Audition portrait</p>
-          </div>
-          <div>
-            <img class="img-wide" src="./index_files/Screen-Shot-2018-07-11-at-3.06.01-PM_2000_c--1-.png" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — green screen audition">
-            <p class="img-caption">Green screen audition</p>
-          </div>
-        </div>
-        <div class="image-grid one-col" style="margin-top: 12px;">
-          <div>
-            <img class="img-wide" src="./index_files/Screen-Shot-2018-07-11-at-2.21.03-PM_2000_c--1-.png" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — detritus table">
-            <p class="img-caption">Production still — audition room</p>
+          <p class="slider-caption">"1 quastion / Hi I need To be Loved"</p>
+          <div class="slider-controls">
+            <button class="slider-btn" data-prev="">← prev</button>
+            <span class="slider-counter">1 / 6</span>
+            <button class="slider-btn" data-next="">next →</button>
           </div>
         </div>
       </div>
@@ -797,6 +816,27 @@
 </footer>
 
 <script>
+  // Sliders
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+    const track = slider.querySelector('.slider-track');
+    const imgs = track.querySelectorAll('img');
+    const caption = slider.querySelector('.slider-caption');
+    const counter = slider.querySelector('.slider-counter');
+    let current = 0;
+
+    function show(n) {
+      current = (n + imgs.length) % imgs.length;
+      track.scrollLeft = 0;
+      imgs.forEach((img, i) => img.style.display = i === current ? 'block' : 'none');
+      caption.textContent = imgs[current].dataset.caption || '';
+      counter.textContent = (current + 1) + ' / ' + imgs.length;
+    }
+
+    slider.querySelector('[data-prev]').addEventListener('click', () => show(current - 1));
+    slider.querySelector('[data-next]').addEventListener('click', () => show(current + 1));
+    show(0);
+  });
+
   // Intersection observer for scroll animations
   const projects = document.querySelectorAll('.project');
   const observer = new IntersectionObserver((entries) => {
