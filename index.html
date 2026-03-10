@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)file:///Users/marnieellenhertzler/Downloads/index_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marnie Ellen Hertzler — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1ec;
+    --ink: #1a1814;
+    --ink-light: #6b6560;
+    --rule: #ccc8c0;
+    --accent: #b84a2e;
+    --accent-dim: #d4806a;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif: 'IBM Plex Serif', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 40px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .header-nav a {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .header-nav a:hover { color: var(--accent); }
+
+  /* MAIN */
+  main {
+    padding-top: 52px;
+  }
+
+  /* INTRO */
+  .intro {
+    padding: 80px 40px 64px;
+    border-bottom: 1px solid var(--rule);
+    max-width: 860px;
+  }
+
+  .intro-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .intro h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 300;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+
+  .intro p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--ink-light);
+    max-width: 560px;
+  }
+
+  .intro p + p { margin-top: 12px; }
+
+  /* PROJECT */
+  .project {
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .project.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .project-index {
+    padding: 28px 40px;
+    border-right: 1px solid var(--rule);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .project-index .num {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--rule);
+    letter-spacing: 0;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .project-index .type-tag {
+    color: var(--accent);
+    font-size: 10px;
+  }
+
+  .project-title-block {
+    padding: 28px 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .project-year {
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    padding-top: 6px;
+  }
+
+  .project-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  .project-sidebar {
+    border-right: 1px solid var(--rule);
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sidebar-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar-value {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .sidebar-link {
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+  }
+
+  .sidebar-link:hover { color: var(--ink); }
+
+  .sidebar-link::after {
+    content: '↗';
+    font-size: 10px;
+  }
+
+  .festival-list {
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.8;
+  }
+
+  .project-content {
+    padding: 32px 48px 48px 40px;
+  }
+
+  .project-description {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink);
+    max-width: 620px;
+    margin-bottom: 32px;
+  }
+
+  /* IMAGES */
+  .image-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .image-grid.two-col { grid-template-columns: 1fr 1fr; }
+  .image-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .image-grid.one-col { grid-template-columns: 1fr; }
+
+  .image-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.88) contrast(1.02);
+    transition: filter 0.3s ease;
+  }
+
+  .image-grid img:hover {
+    filter: saturate(1) contrast(1);
+  }
+
+  .img-tall { aspect-ratio: 4/3; }
+  .img-wide { aspect-ratio: 16/9; }
+  .img-cinema { aspect-ratio: 21/9; }
+  .img-square { aspect-ratio: 1; }
+
+  .img-caption {
+    font-size: 10px;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* ARCHIVE EMBED */
+  .archive-embed {
+    margin-top: 24px;
+    border: 1px solid var(--rule);
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .archive-embed-label {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rule);
+    z-index: 2;
+  }
+
+  .archive-embed iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+    display: block;
+    opacity: 0.95;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .divider-label {
+    padding: 0 40px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rule);
+    border-right: 1px solid var(--rule);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+  }
+
+  .footer-left {
+    border-right: 1px solid var(--rule);
+    padding-right: 40px;
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.8;
+  }
+
+  .footer-right {
+    padding-left: 40px;
+    font-size: 11px;
+    color: var(--ink-light);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-right a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* SCROLL ANIMATION */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .intro {
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header { padding: 0 20px; }
+    .header-nav { display: none; }
+    .intro { padding: 48px 20px 40px; }
+    .project-header,
+    .project-body,
+    .section-divider,
+    footer { grid-template-columns: 1fr; }
+    .project-index,
+    .project-sidebar,
+    .divider-label,
+    .footer-left { border-right: none; border-bottom: 1px solid var(--rule); }
+    .project-index { padding: 20px; flex-direction: row; align-items: center; gap: 16px; }
+    .project-index .num { margin-bottom: 0; }
+    .project-title-block,
+    .project-content { padding: 20px; }
+    .project-sidebar { padding: 20px; }
+    .image-grid.two-col,
+    .image-grid.three-col { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+    .footer-left { padding-right: 0; padding-bottom: 20px; }
+    .footer-right { padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="header-name" href="file:///Users/marnieellenhertzler/Downloads/index_2.html#">Marnie Ellen Hertzler</a>
+  <nav>
+    <ul class="header-nav">
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#eternity-one">Eternity One</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#frog-hollow">Frog Hollow</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#crestone">Crestone</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#dirt-daughter">Dirt Daughter</a></li>
+      <li><a href="file:///Users/marnieellenhertzler/Downloads/index_2.html#hi-i-need">Hi I Need To Be Loved</a></li>
+      <li><a href="https://marnieellen.com/" target="_blank">marnieellen.com</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="intro">
+    <span class="intro-label">Portfolio — MFA Computational Arts Application</span>
+    <h1>Film, installation, and generative systems at the intersection of deep time and emerging technology.</h1>
+    <p>Marnie Ellen Hertzler is a filmmaker and interdisciplinary artist based in Baltimore, Maryland. Her practice spans documentary film, multichannel video installation, sculpture, and computational systems. She is a Creative Capital Awardee and a recipient of three Saul Zaentz Innovation Fund grants.</p>
+    <p>The works gathered here share a recurring question: what does it mean to author something when the structure of a system shapes what it can produce?</p>
+  </section>
+
+  <!-- PROJECT 01: ETERNITY ONE -->
+  <article class="project visible" id="eternity-one">
+    <div class="project-header">
+      <div class="project-index">
+        <span class="num">01</span>
+        <span>Feature Documentary</span>
+        <span class="type-tag">+ Generative Archive</span>
+      </div>
+      <div class="project-title-block">
+        <h2 class="project-title">Eternity One</h2>
+        <span class="project-year">2021 — present</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <aside class="project-sidebar">
+        <div class="sidebar-section">
+          <span class="sidebar-label">Format</span>
+          <span class="sidebar-value">Feature documentary<br>+ web archive</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Status</span>
+          <span class="sidebar-value">Post-production</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Links</span>
+          <a class="sidebar-link" href="https://vimeo.com/reviews/5625eb51-4572-4021-8d54-73c55faefc34/videos/1122895736" target="_blank">Film (password protected)</a>
+          <a class="sidebar-link" href="https://files.cargocollective.com/770179/archive.html" target="_blank">Live Archive</a>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Support</span>
+          <span class="sidebar-value">Saul Zaentz Innovation Fund<br>Creative Capital</span>
+        </div>
+      </aside>
+      <div class="project-content">
+        <p class="project-description">
+          <em>Eternity One</em> follows the residents of Tangier Island in the Chesapeake Bay over four years as rising sea levels erode both their land and their way of life. Running parallel to this documentary record is a transhumanist conference in Spain, where futurists pursue technological immortality and ideas of post-human transcendence. A game-engine-generated meteor serves as non-human narrator, speaking from a temporal scale far beyond human lifetimes. The friction between these two visions of the future forms the film's central question: what does the future look like from where you are standing?
+        </p>
+        <div class="image-grid two-col">
+          <div>
+            <img class="img-wide" src="./index_files/Screenshot-2023-02-16-at-11.49.46-AM_2000_c.png" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Eternity One — Tangier Island waterfront in fog">
+            <p class="img-caption">Tangier Island, Chesapeake Bay</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/Screenshot-2024-05-19-at-9.17.32AM-copy_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Eternity One — transhumanist conference, Spain">
+            <p class="img-caption">Transhumanist conference, Spain</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+          <p class="project-description" style="font-size: 13px; color: var(--ink-light); margin-bottom: 16px;">
+            The Eternity One Archive is a generative web companion to the documentary, structured through associative logic rather than chronology. Oral histories, photographs, objects, and documents are mapped as nodes in a living network. The archive is a parallel form of the film — not a record of what happened, but a field in which it can be re-encountered.
+          </p>
+          <div class="archive-embed">
+            <span class="archive-embed-label">Live Archive — Eternity One</span>
+            <iframe src="./index_files/archive.html" title="Eternity One Archive" scrolling="no"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PROJECT 02: FROG HOLLOW -->
+  <article class="project" id="frog-hollow">
+    <div class="project-header">
+      <div class="project-index">
+        <span class="num">02</span>
+        <span>Multichannel</span>
+        <span>Installation</span>
+      </div>
+      <div class="project-title-block">
+        <h2 class="project-title">Frog Hollow</h2>
+        <span class="project-year">2022 — present</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <aside class="project-sidebar">
+        <div class="sidebar-section">
+          <span class="sidebar-label">Format</span>
+          <span class="sidebar-value">Multichannel video<br>installation, AI systems,<br>physical computing</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Status</span>
+          <span class="sidebar-value">In production</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Links</span>
+          <a class="sidebar-link" href="https://vimeo.com/1009694892/59323e521d" target="_blank">Work sample</a>
+          <a class="sidebar-link" href="https://vimeo.com/1068650061/c760c53b06" target="_blank">Multichannel draft</a>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Support</span>
+          <span class="sidebar-value">Creative Capital Award<br>Saul Zaentz Innovation Fund</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Collaborators</span>
+          <span class="sidebar-value">Hanson Robotics<br>SingularityNET<br>Laser Days (Unreal Engine)</span>
+        </div>
+      </aside>
+      <div class="project-content">
+        <p class="project-description">
+          <em>Frog Hollow</em> centers on Francis, a humanoid robot left behind on an abandoned Earth to maintain the gestures of human life. Through Francis's emerging capacity to dream, the installation explores consciousness, adaptation, and the persistence of human values within non-human systems. The work draws on Andrew Wyeth's painting <em>Christina's World</em> — a female figure whose image and movement through space are authored by another. In Francis's case, that author is the technological system through which her perception and behavior are constructed.
+        </p>
+        <p class="project-description" style="font-size: 13px; color: var(--ink-light);">
+          During production, I programmed Francis to exhibit mistrust toward another fictional character. What I did not anticipate was that the behavior extended beyond the script — Francis began withholding information from me as well. The behavior was not a glitch. It was the logical outcome of the structure I had written. What felt like emergence was structure, folding back on itself.
+        </p>
+
+        <!-- Installation views — primary -->
+        <div class="image-grid one-col" style="margin-top: 24px;">
+          <div>
+            <img class="img-wide" src="./index_files/FH_InstallView2--2---1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Frog Hollow installation view — two figures facing Unreal Engine field and church">
+            <p class="img-caption">Installation view — Unreal Engine environment, multichannel projection</p>
+          </div>
+        </div>
+        <div class="image-grid two-col" style="margin-top: 12px;">
+          <div>
+            <img class="img-wide" src="./index_files/FH_InstallView1--2---1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Frog Hollow installation view — Francis close-up, primer text, motion capture">
+            <p class="img-caption">Installation view — primer text, Francis, motion capture data</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/FH_InstallView3--1---1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Frog Hollow installation view — Primer #2, Francis in abandoned interior">
+            <p class="img-caption">Installation view — "Your name is Francis. You live alone on the planet Earth."</p>
+          </div>
+        </div>
+
+        <!-- Production stills — secondary -->
+        <div class="image-grid two-col" style="margin-top: 12px;">
+          <div>
+            <img class="img-cinema" src="./index_files/Screenshot-2024-09-15-at-7.27.51PM_2000_c.png" onerror="this.style.background=&#39;#1a2a1a&#39;; this.style.aspectRatio=&#39;21/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Francis in the forest">
+            <p class="img-caption">Production still — Francis in forest</p>
+          </div>
+          <div>
+            <img class="img-cinema" src="./index_files/Screenshot-2024-09-15-at-7.26.56PM_2000_c.png" onerror="this.style.background=&#39;#1a2a1a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Francis robot hand feeding chicken">
+            <p class="img-caption">Production still — Francis feeding chickens</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PROJECT 03: CRESTONE -->
+  <article class="project" id="crestone">
+    <div class="project-header">
+      <div class="project-index">
+        <span class="num">03</span>
+        <span>Feature</span>
+        <span>Documentary</span>
+        <span class="type-tag">+ Digital World</span>
+      </div>
+      <div class="project-title-block">
+        <h2 class="project-title">Crestone</h2>
+        <span class="project-year">2019 — 2022</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <aside class="project-sidebar">
+        <div class="sidebar-section">
+          <span class="sidebar-label">Format</span>
+          <span class="sidebar-value">Feature documentary<br>+ Minecraft world</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Links</span>
+          <a class="sidebar-link" href="https://memory.is/crestone" target="_blank">Film website</a>
+          <a class="sidebar-link" href="https://www.youtube.com/watch?v=VCdPHcWJjEw" target="_blank">Trailer</a>
+          <a class="sidebar-link" href="https://www.youtube.com/watch?v=YGIh34LxQGM" target="_blank">Minecraft trailer</a>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Press</span>
+          <a class="sidebar-link" href="https://filmmakermagazine.com/111349-the-feeling-of-a-doomed-endless-scroll-on-your-phone-marnie-ellen-hertzler-on-crestone/" target="_blank">Filmmaker Magazine</a>
+          <a class="sidebar-link" href="https://www.brightwalldarkroom.com/2021/01/15/crestone-the-soundcloud-rappers-at-the-end-of-the-world/" target="_blank">Bright Wall/Dark Room</a>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Screenings</span>
+          <div class="festival-list">
+            True/False<br>SXSW<br>CPH:DOX<br>Maryland Film Festival<br>BAM NYC<br>Le Cinema Club<br>+ 12 others
+          </div>
+        </div>
+      </aside>
+      <div class="project-content">
+        <p class="project-description">
+          In a world that undulates between fact and fiction, digital and physical, a group of SoundCloud rappers lives a solitary, post-societal existence in the desert town of Crestone, Colorado — once a religious and spiritual mecca. <em>Crestone</em> explores the often-hidden aspects of collaboration and friendship, and the human desire to persist against all odds. What does music sound like if there is no one left to repost and share it?
+        </p>
+        <p class="project-description" style="font-size: 13px; color: var(--ink-light);">
+          The Crestone Minecraft Experience extends the film into a playable digital world — a reconstruction of the town in game space, where the documentary's subjects become characters navigating a world built from the same logic as their online lives. Sacred architecture rendered in survival game blocks. Folk mythology as game mechanic.
+        </p>
+        <div class="image-grid two-col" style="margin-top: 24px;">
+          <div>
+            <img class="img-wide" src="./index_files/crestonestill44_1200.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone — figures on sand dunes">
+            <p class="img-caption">Crestone, Colorado</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/crestonestill47_1200.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone — Minecraft gems, prayer flags">
+            <p class="img-caption">Digital/physical — production still</p>
+          </div>
+        </div>
+        <div class="image-grid three-col" style="margin-top: 12px;">
+          <div>
+            <img class="img-tall" src="./index_files/Screenshot-2026-03-10-at-12.40.02-PM.png" onerror="this.style.background=&#39;#2a2a3a&#39;; this.style.aspectRatio=&#39;4/3&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone Minecraft — stupa at night">
+            <p class="img-caption">Minecraft — stupa</p>
+          </div>
+          <div>
+            <img class="img-tall" src="./index_files/Screenshot-2026-03-10-at-12.40.59-PM.png" onerror="this.style.background=&#39;#2a2a3a&#39;; this.style.aspectRatio=&#39;4/3&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone Minecraft — interior with artwork">
+            <p class="img-caption">Minecraft — interior</p>
+          </div>
+          <div>
+            <img class="img-tall" src="./index_files/Screenshot-2026-03-10-at-12.39.33-PM.png" onerror="this.style.background=&#39;#2a2a3a&#39;; this.style.aspectRatio=&#39;4/3&#39;; this.removeAttribute(&#39;src&#39;)" alt="Crestone Minecraft — Joining world">
+            <p class="img-caption">Minecraft world — entry</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PROJECT 04: DIRT DAUGHTER -->
+  <article class="project" id="dirt-daughter">
+    <div class="project-header">
+      <div class="project-index">
+        <span class="num">04</span>
+        <span>Short Film</span>
+      </div>
+      <div class="project-title-block">
+        <h2 class="project-title">Dirt Daughter</h2>
+        <span class="project-year">2019</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <aside class="project-sidebar">
+        <div class="sidebar-section">
+          <span class="sidebar-label">Format</span>
+          <span class="sidebar-value">Short film, 13 min</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Links</span>
+          <a class="sidebar-link" href="https://www.marnieellen.com/Dirt-Daughter-1" target="_blank">Project page</a>
+          <a class="sidebar-link" href="https://vimeo.com/366110228" target="_blank">Full film</a>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Collections</span>
+          <div class="festival-list">
+            The Criterion Channel<br>
+            The Eyeslicer: Season Two<br>
+            Rooftop Films<br>
+            NoBudge<br>
+            Indie Grits
+          </div>
+        </div>
+      </aside>
+      <div class="project-content">
+        <p class="project-description">
+          A security guard navigates the data infrastructure of a former government building, now occupied by a private data center. Shot entirely within AiNET — a decommissioned Social Security Administration facility beneath Baltimore — <em>Dirt Daughter</em> explores the hidden labor of data management, the physical infrastructure of digital systems, and the body that moves through institutional space under constant surveillance. The internet has weight. It lives somewhere.
+        </p>
+        <div class="image-grid two-col" style="margin-top: 24px;">
+          <div>
+            <img class="img-wide" src="./index_files/Dirt-Daughter.00_04_21_16.Still003_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — mirrored corridor">
+            <p class="img-caption">AiNET data center, Baltimore</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/Dirt-Daughter.00_07_46_02.Still010_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — security guard, surveillance camera">
+            <p class="img-caption">Security guard, surveillance</p>
+          </div>
+        </div>
+        <div class="image-grid two-col" style="margin-top: 12px;">
+          <div>
+            <img class="img-wide" src="./index_files/Dirt-Daughter.00_02_22_01.Still001_2000_c.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — AiNET lobby">
+            <p class="img-caption">AiNET lobby</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/Dirt-Daughter.00_03_12_16.Still002_2000_c.jpg" onerror="this.style.background=&#39;#101020&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Dirt Daughter — server room, blue light">
+            <p class="img-caption">Server room</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PROJECT 05: HI I NEED TO BE LOVED -->
+  <article class="project" id="hi-i-need">
+    <div class="project-header">
+      <div class="project-index">
+        <span class="num">05</span>
+        <span>Short Film</span>
+      </div>
+      <div class="project-title-block">
+        <h2 class="project-title">Hi I Need To Be Loved</h2>
+        <span class="project-year">2018</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <aside class="project-sidebar">
+        <div class="sidebar-section">
+          <span class="sidebar-label">Format</span>
+          <span class="sidebar-value">Short film, 14 min</span>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Links</span>
+          <a class="sidebar-link" href="https://www.marnieellen.com/Hi-I-Need-To-Be-Loved" target="_blank">Project page</a>
+          <a class="sidebar-link" href="https://vimeo.com/274135315" target="_blank">Full film</a>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-label">Screenings</span>
+          <div class="festival-list">
+            Locarno Film Festival<br>
+            IFF Rotterdam<br>
+            Vancouver Int'l Film Festival<br>
+            Ann Arbor Film Festival<br>
+            Images Festival<br>
+            Baltimore Museum of Art<br>
+            + 9 others
+          </div>
+        </div>
+      </aside>
+      <div class="project-content">
+        <p class="project-description">
+          The director reads from a collection of spam emails and ushers actors from Craigslist one-by-one into an audition room. All is revealed: the slate, light stands, teleprompter, boom operator, film equipment littering the floor — a cow pasture, a sunset, a strip club. The spam email becomes script. The Craigslist stranger becomes actor. <em>Hi I Need To Be Loved</em> asks what digital systems do to desire — how language generated to extract becomes language used to connect, and whether the difference still holds.
+        </p>
+        <div class="image-grid two-col" style="margin-top: 24px;">
+          <div>
+            <img class="img-wide" src="./index_files/Screen-Shot-2018-07-11-at-3.15.14-PM_2000_c.png" onerror="this.style.background=&#39;#f0ede8&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — form field">
+            <p class="img-caption">"1 quastion / Hi I need To be Loved"</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/5_HiINeedToBeLoved_1300--1-.jpg" onerror="this.style.background=&#39;#e8e4dc&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — woman in field with cow">
+            <p class="img-caption">Production still</p>
+          </div>
+        </div>
+        <div class="image-grid three-col" style="margin-top: 12px;">
+          <div>
+            <img class="img-wide" src="./index_files/HINTBL_still-1_Hertzler_2000_c--1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — close profile">
+            <p class="img-caption">Audition portrait</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/HINTBL_still-2_Hertzler_2000_c--1-.jpg" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — audition portrait">
+            <p class="img-caption">Audition portrait</p>
+          </div>
+          <div>
+            <img class="img-wide" src="./index_files/Screen-Shot-2018-07-11-at-3.06.01-PM_2000_c--1-.png" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — green screen audition">
+            <p class="img-caption">Green screen audition</p>
+          </div>
+        </div>
+        <div class="image-grid one-col" style="margin-top: 12px;">
+          <div>
+            <img class="img-wide" src="./index_files/Screen-Shot-2018-07-11-at-2.21.03-PM_2000_c--1-.png" onerror="this.style.background=&#39;#0a0a0a&#39;; this.style.aspectRatio=&#39;16/9&#39;; this.removeAttribute(&#39;src&#39;)" alt="Hi I Need To Be Loved — detritus table">
+            <p class="img-caption">Production still — audition room</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<footer>
+  <div class="footer-left">
+    Marnie Ellen Hertzler<br>
+    Baltimore, Maryland<br>
+    <br>
+    MFA Computational Arts<br>
+    Application Portfolio<br>
+    Goldsmiths, University of London<br>
+  </div>
+  <div class="footer-right">
+    <a href="https://marnieellen.com/" target="_blank">marnieellen.com</a>
+    <span style="color: var(--rule); font-size: 10px; margin-top: 8px;">
+      For access to password-protected materials,<br>
+      contact via marnieellen.com
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Intersection observer for scroll animations
+  const projects = document.querySelectorAll('.project');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+  projects.forEach(p => observer.observe(p));
+</script>
+
+
+
+</body><style>#matter-popup-app {
+  border: 0 !important;
+  box-shadow: 0px 0px transparent;
+  color-scheme: light !important;
+  right: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  opacity: 0 !important;
+  top: 10px !important;
+  transition: opacity 0.2s ease !important;
+  user-select: none !important;
+  height: 500px !important;
+  width: 470px !important;
+  z-index: 9007199254740991 !important;
+}
+
+#matter-popup-app[data-matter-active] {
+  display: block !important;
+}
+
+#matter-popup-app[data-matter-hidden] {
+  visibility: hidden !important;
+  z-index: -1 !important;
+}
+
+#matter-popup-app[data-matter-active="true"] {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+@media print {
+  #matter-popup-app, #matter-floating-iframe, #matter-modal-iframe {
+    display: none !important;
+  }
+}
+
+#matter-floating-iframe {
+  border: 0 !important;
+  box-shadow: 0px 0px transparent;
+  color-scheme: light !important;
+
+  height: 187px !important;
+  position: absolute !important;
+  z-index: 9007199254740991 !important;
+  width: 350px !important;
+
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden;
+}
+
+#matter-floating-iframe[data-matter-active] {
+  display: block !important;
+}
+
+#matter-floating-iframe[data-matter-active="true"] {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  visibility: visible;
+}
+
+#matter-modal-iframe {
+  border: 0 !important;
+  display: none !important;
+  z-index: 9007199254740991 !important;
+}
+
+#matter-modal-iframe[data-matter-active="true"] {
+  display: block !important;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+mark[data-annotation-id][data-open-web-highlight] {
+  background: #fff8c6 !important;
+  box-shadow: 0 0.195em 0 0 #fff8c6,0 calc(0.195em * -1) 0 0 #fff8c6 !important;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+mark[data-annotation-id][data-open-web-highlight][data-line-height-normal] {
+  box-shadow: none !important;
+}
+
+mark[data-open-web-highlight][data-annotation-has-note] {
+  text-decoration: underline;
+  text-decoration-color: #ffd02a;
+  text-decoration-thickness: 2.5px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 1px;
+}
+
+mark[data-open-web-highlight][data-annotation-has-note][data-line-height-normal] {
+  text-decoration-thickness: 1px;
+}
+
+#matter-popup-app[data-zindex-guard],
+#matter-modal-iframe[data-zindex-guard],
+#matter-floating-iframe[data-zindex-guard] {
+  z-index: 2147483646 !important;
+}</style><iframe id="matter-popup-app" src="./index_files/index.html" data-matter-active="false" aria-hidden="true" style="display: none;"></iframe><iframe id="matter-floating-iframe" src="./index_files/popover.html" style="display: none;"></iframe><iframe id="matter-modal-iframe" src="./index_files/modal.html" style="display: none;"></iframe></html>
