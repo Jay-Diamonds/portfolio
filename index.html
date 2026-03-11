@@ -154,19 +154,19 @@
 
   /* ── PROJECT BODY ── */
   .project-body {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 0;
+    padding: 36px var(--gutter) 48px;
   }
 
-  .project-sidebar {
-    padding: 36px 24px 36px var(--gutter);
-    border-right: 1px solid var(--rule);
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
   }
 
-  .meta-block {
-    margin-bottom: 28px;
-  }
+  .meta-block {}
 
   .meta-label {
     font-family: var(--mono);
@@ -193,11 +193,6 @@
   }
 
   .meta-link:hover { color: var(--ink); text-decoration: underline; }
-
-  /* ── PROJECT CONTENT ── */
-  .project-content {
-    padding: 36px var(--gutter) 36px 36px;
-  }
 
   .project-description {
     font-size: 16px;
@@ -350,9 +345,7 @@
     .cover-meta { text-align: left; }
     .project-header { grid-template-columns: 1fr; }
     .project-num { display: none; }
-    .project-body { grid-template-columns: 1fr; }
-    .project-sidebar { border-right: none; border-bottom: 1px solid var(--rule); padding: 24px var(--gutter); }
-    .project-content { padding: 28px var(--gutter); }
+    .meta-row { gap: 20px; }
     .toc { gap: 20px; }
     footer { flex-direction: column; gap: 20px; }
   }
@@ -397,25 +390,25 @@
       </div>
     </div>
     <div class="project-body">
-      <aside class="project-sidebar">
+      <div class="meta-row">
         <div class="meta-block">
           <span class="meta-label">Format</span>
-          <span class="meta-value">Feature documentary<br>+ web archive</span>
+          <span class="meta-value">Feature documentary + web archive</span>
         </div>
         <div class="meta-block">
           <span class="meta-label">Status</span>
           <span class="meta-value">Post-production</span>
         </div>
         <div class="meta-block">
+          <span class="meta-label">Support</span>
+          <span class="meta-value">Saul Zaentz Innovation Fund · Creative Capital</span>
+        </div>
+        <div class="meta-block">
           <span class="meta-label">Links</span>
           <a class="meta-link" href="https://vimeo.com/reviews/5625eb51-4572-4021-8d54-73c55faefc34/videos/1122895736" target="_blank">Film (password)</a>
           <a class="meta-link" href="https://files.cargocollective.com/770179/archive.html" target="_blank">Live Archive</a>
         </div>
-        <div class="meta-block">
-          <span class="meta-label">Support</span>
-          <span class="meta-value">Saul Zaentz Innovation Fund<br>Creative Capital</span>
-        </div>
-      </aside>
+      </div>
       <div class="project-content">
         <p class="project-description">
           <em>Eternity One</em> follows the residents of Tangier Island in the Chesapeake Bay over four years as rising sea levels erode both their land and their way of life. Running parallel is a transhumanist conference in Spain, where futurists pursue technological immortality. A game-engine-generated meteor serves as non-human narrator, speaking from a temporal scale far beyond human lifetimes. The friction between these two visions of the future forms the film's central question: what does the future look like from where you are standing?
@@ -462,29 +455,29 @@
       </div>
     </div>
     <div class="project-body">
-      <aside class="project-sidebar">
+      <div class="meta-row">
         <div class="meta-block">
           <span class="meta-label">Format</span>
-          <span class="meta-value">Multichannel video<br>installation, AI systems,<br>physical computing</span>
+          <span class="meta-value">Multichannel video installation, AI systems, physical computing</span>
         </div>
         <div class="meta-block">
           <span class="meta-label">Status</span>
           <span class="meta-value">In production</span>
         </div>
         <div class="meta-block">
+          <span class="meta-label">Support</span>
+          <span class="meta-value">Creative Capital Award · Saul Zaentz Innovation Fund</span>
+        </div>
+        <div class="meta-block">
+          <span class="meta-label">Collaborators</span>
+          <span class="meta-value">Hanson Robotics · SingularityNET · Laser Days</span>
+        </div>
+        <div class="meta-block">
           <span class="meta-label">Links</span>
           <a class="meta-link" href="https://vimeo.com/1009694892/59323e521d" target="_blank">Work sample</a>
           <a class="meta-link" href="https://vimeo.com/1068650061/c760c53b06" target="_blank">Multichannel draft</a>
         </div>
-        <div class="meta-block">
-          <span class="meta-label">Support</span>
-          <span class="meta-value">Creative Capital Award<br>Saul Zaentz Innovation Fund</span>
-        </div>
-        <div class="meta-block">
-          <span class="meta-label">Collaborators</span>
-          <span class="meta-value">Hanson Robotics<br>SingularityNET<br>Laser Days (Unreal Engine)</span>
-        </div>
-      </aside>
+      </div>
       <div class="project-content">
         <p class="project-description">
           <em>Frog Hollow</em> centers on Francis, a humanoid robot left behind on an abandoned Earth to maintain the gestures of human life. Through Francis's emerging capacity to dream, the installation explores consciousness, adaptation, and the persistence of human values within non-human systems. The work draws on Andrew Wyeth's <em>Christina's World</em> — a female figure whose image and movement through space are authored by another. In Francis's case, that author is the technological system through which her perception and behavior are constructed.
@@ -526,10 +519,14 @@
       </div>
     </div>
     <div class="project-body">
-      <aside class="project-sidebar">
+      <div class="meta-row">
         <div class="meta-block">
           <span class="meta-label">Format</span>
-          <span class="meta-value">Feature documentary<br>+ Minecraft world</span>
+          <span class="meta-value">Feature documentary + Minecraft world</span>
+        </div>
+        <div class="meta-block">
+          <span class="meta-label">Screenings</span>
+          <span class="meta-value">True/False · SXSW · CPH:DOX · BAM NYC · Le Cinema Club · +12</span>
         </div>
         <div class="meta-block">
           <span class="meta-label">Links</span>
@@ -542,11 +539,7 @@
           <a class="meta-link" href="https://filmmakermagazine.com/111349-the-feeling-of-a-doomed-endless-scroll-on-your-phone-marnie-ellen-hertzler-on-crestone/" target="_blank">Filmmaker Magazine</a>
           <a class="meta-link" href="https://www.brightwalldarkroom.com/2021/01/15/crestone-the-soundcloud-rappers-at-the-end-of-the-world/" target="_blank">Bright Wall/Dark Room</a>
         </div>
-        <div class="meta-block">
-          <span class="meta-label">Screenings</span>
-          <span class="meta-value">True/False · SXSW<br>CPH:DOX · BAM NYC<br>Le Cinema Club<br>+ 12 others</span>
-        </div>
-      </aside>
+      </div>
       <div class="project-content">
         <p class="project-description">
           In a world that undulates between fact and fiction, digital and physical, a group of SoundCloud rappers lives a solitary, post-societal existence in the desert town of Crestone, Colorado. <em>Crestone</em> explores the often-hidden aspects of collaboration and friendship, and the human desire to persist against all odds. What does music sound like if there is no one left to repost and share it?
@@ -603,17 +596,21 @@
       </div>
     </div>
     <div class="project-body">
-      <aside class="project-sidebar">
+      <div class="meta-row">
+        <div class="meta-block">
+          <span class="meta-label">Format</span>
+          <span class="meta-value">Short film, 13 min</span>
+        </div>
+        <div class="meta-block">
+          <span class="meta-label">Collections</span>
+          <span class="meta-value">The Criterion Channel · The Eyeslicer S2 · Rooftop Films · NoBudge · Indie Grits</span>
+        </div>
         <div class="meta-block">
           <span class="meta-label">Links</span>
           <a class="meta-link" href="https://www.marnieellen.com/Dirt-Daughter-1" target="_blank">Project page</a>
           <a class="meta-link" href="https://vimeo.com/366110228" target="_blank">Full film</a>
         </div>
-        <div class="meta-block">
-          <span class="meta-label">Collections</span>
-          <span class="meta-value">The Criterion Channel<br>The Eyeslicer S2<br>Rooftop Films<br>NoBudge · Indie Grits</span>
-        </div>
-      </aside>
+      </div>
       <div class="project-content">
         <p class="project-description">
           A security guard navigates the data infrastructure of a former government building, now occupied by a private data center. Shot entirely within AiNET — a decommissioned Social Security Administration facility beneath Baltimore — <em>Dirt Daughter</em> explores the hidden labor of data management, the physical infrastructure of digital systems, and the body that moves through institutional space under constant surveillance. The internet has weight. It lives somewhere.
@@ -650,17 +647,21 @@
       </div>
     </div>
     <div class="project-body">
-      <aside class="project-sidebar">
+      <div class="meta-row">
+        <div class="meta-block">
+          <span class="meta-label">Format</span>
+          <span class="meta-value">Short film, 14 min</span>
+        </div>
+        <div class="meta-block">
+          <span class="meta-label">Screenings</span>
+          <span class="meta-value">Locarno · IFF Rotterdam · Vancouver Int'l · Ann Arbor · Images Festival · Baltimore Museum of Art · +9</span>
+        </div>
         <div class="meta-block">
           <span class="meta-label">Links</span>
           <a class="meta-link" href="https://www.marnieellen.com/Hi-I-Need-To-Be-Loved" target="_blank">Project page</a>
           <a class="meta-link" href="https://vimeo.com/274135315" target="_blank">Full film</a>
         </div>
-        <div class="meta-block">
-          <span class="meta-label">Screenings</span>
-          <span class="meta-value">Locarno Film Festival<br>IFF Rotterdam<br>Vancouver Int'l<br>Ann Arbor Film Festival<br>Images Festival<br>Baltimore Museum of Art<br>+ 9 others</span>
-        </div>
-      </aside>
+      </div>
       <div class="project-content">
         <p class="project-description">
           The director reads from a collection of spam emails and ushers actors from Craigslist one-by-one into an audition room. All is revealed: the slate, light stands, teleprompter, boom operator, film equipment littering the floor — a cow pasture, a sunset, a strip club. The spam email becomes script. The Craigslist stranger becomes actor. <em>Hi I Need To Be Loved</em> asks what digital systems do to desire — how language generated to extract becomes language used to connect, and whether the difference still holds.
