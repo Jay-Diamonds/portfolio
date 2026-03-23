@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marnie Ellen Hertzler — Portfolio</title>
+<title>Marnie Ellen Hertzler's Portfolio — Goldsmiths MFA Computational Arts</title>
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,6 +41,19 @@
     min-height: 100vh;
   }
 
+  /* ── PAGE LABEL ── */
+  .page-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-align: center;
+    padding: 12px var(--gutter);
+    border-bottom: 1px solid var(--rule);
+    background: var(--page);
+  }
+
   /* ── COVER ── */
   .cover {
     padding: 80px var(--gutter) 60px;
@@ -51,7 +64,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 48px;
   }
 
   .cover-name {
@@ -68,14 +80,6 @@
     color: var(--ink-mid);
     line-height: 2;
     text-align: right;
-  }
-
-  .cover-bio {
-    font-size: 16px;
-    color: var(--ink-mid);
-    line-height: 1.75;
-    border-top: 1px solid var(--rule);
-    padding-top: 28px;
   }
 
   /* ── TOC ── */
@@ -234,6 +238,7 @@
     height: auto;
     aspect-ratio: 16/10;
     object-fit: cover;
+    cursor: zoom-in;
   }
 
   .slider-track img.active {
@@ -287,7 +292,9 @@
   }
 
   .archive-embed-label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: var(--mono);
     font-size: 9.5px;
     text-transform: uppercase;
@@ -304,6 +311,81 @@
     border: none;
     display: block;
   }
+
+  .archive-embed.fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    margin: 0;
+    border: none;
+  }
+
+  .archive-embed.fullscreen iframe {
+    height: calc(100vh - 38px);
+  }
+
+  .archive-embed-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .archive-btn {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--ink-mid);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  .archive-btn:hover { color: var(--ink); }
+
+  /* ── LIGHTBOX ── */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.92);
+    cursor: zoom-out;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .lightbox-overlay.open {
+    display: flex;
+  }
+
+  .lightbox-overlay img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    cursor: default;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 1001;
+  }
+
+  .lightbox-close:hover { color: #fff; }
 
   /* ── FOOTER ── */
   footer {
@@ -353,6 +435,9 @@
 
 <div class="document">
 
+  <!-- PAGE LABEL -->
+  <div class="page-label">Marnie Ellen Hertzler's Portfolio &nbsp;·&nbsp; Goldsmiths MFA Computational Arts</div>
+
   <!-- COVER -->
   <header class="cover">
     <div class="cover-top">
@@ -363,9 +448,6 @@
         <a href="https://www.marnieellen.com" target="_blank" style="color:inherit">marnieellen.com</a>
       </div>
     </div>
-    <p class="cover-bio">
-      Working across documentary film, multichannel video installation, and sculptural practice, she explores how human and more-than-human forces shape environments — and how those transformations are recorded, erased, or reimagined over time. The works gathered here share a recurring question: what does it mean to author something when the structure of a system shapes what it can produce?
-    </p>
   </header>
 
   <!-- TOC -->
@@ -383,7 +465,7 @@
       <div class="project-num">01</div>
       <div class="project-title-block">
         <h2 class="project-title">Eternity One</h2>
-        <p class="project-subtitle">Feature Documentary &nbsp;+&nbsp; Generative Archive &nbsp;·&nbsp; 2021–present</p>
+        <p class="project-subtitle">Feature Documentary &nbsp;+&nbsp; Generative Archive &nbsp;·&nbsp; 2019–present</p>
       </div>
     </div>
     <div class="project-body">
@@ -397,13 +479,9 @@
           <span class="meta-value">Post-production</span>
         </div>
         <div class="meta-block">
-          <span class="meta-label">Support</span>
-          <span class="meta-value">Saul Zaentz Innovation Fund</span>
-        </div>
-        <div class="meta-block">
           <span class="meta-label">Links</span>
           <a class="meta-link" href="https://vimeo.com/reviews/5625eb51-4572-4021-8d54-73c55faefc34/videos/1122895736" target="_blank">Film</a>
-          <a class="meta-link" href="https://files.cargocollective.com/770179/archive.html" target="_blank">Live Archive Prototype</a>
+          <a class="meta-link" href="https://files.cargocollective.com/770179/archive.html" target="_blank">Live Archive</a>
         </div>
       </div>
       <div class="project-content">
@@ -433,8 +511,14 @@
           <p class="project-description secondary">
             The Eternity One Archive is a generative web companion to the documentary, structured through associative logic rather than chronology. Oral histories, objects, photographs, and documents are mapped as nodes in a living network — a parallel form of the film, not a record of what happened but a field in which it can be re-encountered. The system the user moves through is fixed, not fully generative; it marks the edge of what I understood how to build, and points toward what I want to build next.
           </p>
-          <div class="archive-embed">
-            <span class="archive-embed-label">Live Archive: Eternity One</span>
+          <div class="archive-embed" id="archive-embed">
+            <div class="archive-embed-label">
+              <span>Live Archive: Eternity One</span>
+              <div class="archive-embed-actions">
+                <a class="archive-btn" href="https://files.cargocollective.com/770179/archive.html" target="_blank">open ↗</a>
+                <button class="archive-btn" id="archive-expand-btn">expand ↙↗</button>
+              </div>
+            </div>
             <iframe src="https://files.cargocollective.com/770179/archive.html" title="Eternity One Archive" scrolling="no"></iframe>
           </div>
         </div>
@@ -448,7 +532,7 @@
       <div class="project-num">02</div>
       <div class="project-title-block">
         <h2 class="project-title">Frog Hollow</h2>
-        <p class="project-subtitle">Multichannel Installation &nbsp;·&nbsp; 2022–present</p>
+        <p class="project-subtitle">Multichannel Installation &nbsp;·&nbsp; 2023–present</p>
       </div>
     </div>
     <div class="project-body">
@@ -460,10 +544,6 @@
         <div class="meta-block">
           <span class="meta-label">Status</span>
           <span class="meta-value">In production</span>
-        </div>
-        <div class="meta-block">
-          <span class="meta-label">Support</span>
-          <span class="meta-value">Creative Capital Award · Saul Zaentz Innovation Fund</span>
         </div>
         <div class="meta-block">
           <span class="meta-label">Collaborators</span>
@@ -487,7 +567,7 @@
           <div class="slider-track">
             <img src="https://drive.google.com/thumbnail?id=1Ap5s9M2Ya_FGqKoMaiL_a05_9LBs66Cf&sz=w1400" alt="" data-caption="Installation view: Unreal Engine environment, multichannel projection">
             <img src="https://drive.google.com/thumbnail?id=1ruedyh4-VXu3qIlwTHQfP7RZ132v4y2O&sz=w1400" alt="" data-caption="Installation view: primer text, Francis, motion capture data">
-            <img src="https://drive.google.com/thumbnail?id=1rb3KTmfrshSZvLQXdmlh6JjIY4Uf4KBe&sz=w1400" alt="" data-caption='Installation view , "Your name is Francis. You live alone on the planet Earth."'>
+            <img src="https://drive.google.com/thumbnail?id=1rb3KTmfrshSZvLQXdmlh6JjIY4Uf4KBe&sz=w1400" alt="" data-caption='Installation view, "Your name is Francis. You live alone on the planet Earth."'>
           </div>
           <div class="slider-footer">
             <span class="slider-caption"></span>
@@ -527,7 +607,7 @@
       <div class="project-num">03</div>
       <div class="project-title-block">
         <h2 class="project-title">Crestone</h2>
-        <p class="project-subtitle">Feature Documentary &nbsp;+&nbsp; Digital World &nbsp;·&nbsp; 2019–2022</p>
+        <p class="project-subtitle">Feature Documentary &nbsp;+&nbsp; Digital World &nbsp;·&nbsp; 2018–2020</p>
       </div>
     </div>
     <div class="project-body">
@@ -537,8 +617,8 @@
           <span class="meta-value">Feature documentary + Minecraft world</span>
         </div>
         <div class="meta-block">
-          <span class="meta-label">Screenings</span>
-          <span class="meta-value">True/False · SXSW · CPH:DOX · BAM NYC · Le Cinema Club · +12</span>
+          <span class="meta-label">Selected Press</span>
+          <span class="meta-value">True/False Film Festival (World Premiere) · SXSW · Maryland Film Festival · Denver Film Festival · CPH:DOX · Le Cinema Club · Rockaway Film Festival</span>
         </div>
         <div class="meta-block">
           <span class="meta-label">Links</span>
@@ -615,8 +695,8 @@
           <span class="meta-value">Short film, 13 min</span>
         </div>
         <div class="meta-block">
-          <span class="meta-label">Collections</span>
-          <span class="meta-value">The Criterion Channel · The Eyeslicer S2 · Rooftop Films · NoBudge · Indie Grits</span>
+          <span class="meta-label">Selected Press</span>
+          <span class="meta-value">The Criterion Channel · IFF Rotterdam · Indie Grits Film Festival</span>
         </div>
         <div class="meta-block">
           <span class="meta-label">Links</span>
@@ -666,8 +746,8 @@
           <span class="meta-value">Short film, 14 min</span>
         </div>
         <div class="meta-block">
-          <span class="meta-label">Screenings</span>
-          <span class="meta-value">Locarno · IFF Rotterdam · Vancouver Int'l · Ann Arbor · Images Festival · Baltimore Museum of Art · +9</span>
+          <span class="meta-label">Selected Press</span>
+          <span class="meta-value">Locarno Film Festival · IFF Rotterdam · Vancouver International Film Festival · Ann Arbor Film Festival · Denver Film Festival · New Orleans Film Festival · Maryland Film Festival · Baltimore Museum of Art</span>
         </div>
         <div class="meta-block">
           <span class="meta-label">Links</span>
@@ -712,7 +792,14 @@
 
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">close ✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
+  // Sliders + lightbox
   document.querySelectorAll('[data-slider]').forEach(slider => {
     const track = slider.querySelector('.slider-track');
     const imgs = [...track.querySelectorAll('img')];
@@ -734,6 +821,42 @@
 
     slider.querySelector('[data-prev]').addEventListener('click', () => show(cur - 1));
     slider.querySelector('[data-next]').addEventListener('click', () => show(cur + 1));
+
+    imgs.forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('open');
+      });
+    });
+  });
+
+  // Lightbox close
+  const lightbox = document.getElementById('lightbox');
+  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+  document.getElementById('lightbox-close').addEventListener('click', e => {
+    e.stopPropagation();
+    lightbox.classList.remove('open');
+  });
+
+  // Archive expand
+  const archiveEmbed = document.getElementById('archive-embed');
+  const archiveExpandBtn = document.getElementById('archive-expand-btn');
+  if (archiveExpandBtn && archiveEmbed) {
+    archiveExpandBtn.addEventListener('click', () => {
+      const expanded = archiveEmbed.classList.toggle('fullscreen');
+      archiveExpandBtn.textContent = expanded ? 'collapse ↙' : 'expand ↙↗';
+    });
+  }
+
+  // Escape key closes lightbox or archive
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('open');
+      if (archiveEmbed) {
+        archiveEmbed.classList.remove('fullscreen');
+        if (archiveExpandBtn) archiveExpandBtn.textContent = 'expand ↙↗';
+      }
+    }
   });
 </script>
 </body>
